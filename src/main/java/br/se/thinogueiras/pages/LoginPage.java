@@ -33,4 +33,9 @@ public class LoginPage extends BasePage
 		setPassword(password);
 		clickOnSignInButton();
 	}
+	
+	public String getMessageLoginError()
+	{
+		return getMessageAlertText("//*[@id=\"center_column\"]/div[1]/ol/li");		
+	}
 }
