@@ -12,12 +12,14 @@ public class CustomerRegistrationTest extends BaseTest
 	private CustomerRegistrationPage page = new CustomerRegistrationPage();
 	
 	@Test
-	public void registration()
+	public void registration() 
 	{
 		page.accessLoginPage();
 		page.setNewEmailAccount("teste2021@teste.com");
 		page.clickCreateAnAaccountButton();
 		assertEquals("CREATE AN ACCOUNT", page.validateScreenTitleCreateAnAccount("CREATE AN ACCOUNT"));
+		page.setGender();
+		page.setFirstName("Thiago");		
 	}
 	
 	@Test
@@ -25,5 +27,4 @@ public class CustomerRegistrationTest extends BaseTest
 	{
 		
 	}
-
 }

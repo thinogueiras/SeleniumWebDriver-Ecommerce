@@ -9,8 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage 
 {
-	private WebElement element;	
-	private boolean containsText;
+	private WebElement element;		
 	
 	public void sendText(String id, String text)
 	{
@@ -37,9 +36,9 @@ public class BasePage
 		getDriver().findElement(By.xpath(xpath)).click();
 	}
 	
-	public String getMessageAlertText(String xPath)
+	public String getElementText(String xPath)
 	{
-		WebDriverWait wait = new WebDriverWait(getDriver(), 0);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 		element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath)));
 	    String text = element.getText();
 		return text;
@@ -49,7 +48,19 @@ public class BasePage
 	{		
 		element = getDriver().findElement(By.xpath(xPath));
 		String text = element.getText();
-		containsText = text.contains(textCheck);
-		return textCheck;
+		if(text.contains(textCheck))
+		{
+			return textCheck;
+		}
+		else
+		{
+			return text;			
+		}
 	}
+	
+	public void clickRadioButton(String id)
+	{
+		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(id))).click();				
+	}	
 }

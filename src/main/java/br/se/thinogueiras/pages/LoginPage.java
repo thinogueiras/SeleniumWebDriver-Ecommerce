@@ -36,6 +36,6 @@ public class LoginPage extends BasePage
 	
 	public String getMessageLoginError()
 	{
-		return getMessageAlertText("//*[@id=\"center_column\"]/div[1]/ol/li");		
+		return getElementText("//*[@id=\"center_column\"]/div[1]/ol/li");		
 	}
 }
