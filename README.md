@@ -1,5 +1,5 @@
 # Selenium WebDriver E-commerce
-Projeto realizado para execução de testes automatizados de funcionalidades de um E-commerce.
+<span style="color:blue">*Projeto realizado para execução de testes automatizados de funcionalidades de um E-commerce*</span>.
 
 # Tecnologias utilizadas
 * **IDE de desenvolvimento**: Eclipse.
@@ -7,14 +7,14 @@ Projeto realizado para execução de testes automatizados de funcionalidades de 
 * **Framework's de teste**: Selenium WebDriver e JUnit.
 
 # Instalação
-* Eclipse IDE.\
+* Eclipse IDE. <br />
 Link para download: https://www.eclipse.org/downloads/
 
-* Java SE Development Kit 8u311.\
+* Java SE Development Kit 8u311. <br />
 Link para download: https://www.oracle.com/java/technologies/downloads/#java8
 
 # Intruções de execução
-Realizar o download dos drivers compatíveis com a versão do navegador de internet.
+<span style="color:blue">*Realizar o download dos drivers compatíveis com a versão do navegador de internet.*</span> <br />
 
 Chrome: https://chromedriver.chromium.org/downloads <br />
 Firefox: https://github.com/mozilla/geckodriver/releases <br />
@@ -26,9 +26,8 @@ Firefox: https://github.com/mozilla/geckodriver/releases <br />
 </ul>
 
 # Autor
-Thiago Nogueira dos Santos. <br />
-Quality Assurance.
+<span style="color:blue">*Thiago Nogueira dos Santos*</span>. <br />
+<span style="color:blue">*Quality Assurance*</span>. <br />
 
-LinkedIn: https://www.linkedin.com/in/thinogueiras/ <br />
-Email: thinogueiras@gmail.com
-
+<span style="color:blue">*LinkedIn: https://www.linkedin.com/in/thinogueiras/*</span> <br />
+<span style="color:blue">*Email: thinogueiras@gmail.com*</span>
