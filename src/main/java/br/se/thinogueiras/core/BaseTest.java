@@ -16,7 +16,7 @@ import org.openqa.selenium.TakesScreenshot;
 public class BaseTest 
 {
 	@Rule
-	public TestName testName = new TestName();
+	public TestName testName = new TestName();	
 	
 	@After
 	public void closeBrowser() throws IOException

@@ -7,9 +7,9 @@ import br.se.thinogueiras.core.Browser;
 
 public class LoginPage extends BasePage
 {
-	public void accessLoginPage()
+	public static void accessLoginPage()
 	{
-		getDriver(Browser.Chrome, false).get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+		getDriver(Browser.Firefox, false).get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
 	}
 	
 	public void setEmailAddress(String email)
@@ -34,8 +34,13 @@ public class LoginPage extends BasePage
 		clickOnSignInButton();
 	}
 	
+	public String checkMessageWelcomeToYourAccount() 
+	{
+		return getElementText("//*[@id=\"center_column\"]/p");
+	}
+	
 	public String getMessageLoginError()
 	{
 		return getElementText("//*[@id=\"center_column\"]/div[1]/ol/li");		
-	}
+	}	
 }
