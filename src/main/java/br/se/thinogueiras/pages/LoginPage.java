@@ -9,7 +9,7 @@ public class LoginPage extends BasePage
 {
 	public static void accessLoginPage()
 	{
-		getDriver(Browser.Firefox, false).get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+		getDriver(Browser.Chrome, false).get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
 	}
 	
 	public void setEmailAddress(String email)
