@@ -22,7 +22,7 @@ Firefox: https://github.com/mozilla/geckodriver/releases <br />
 <li>Descompactar, copiar e colar os drivers .exe em alguma pasta que seja PATH do S.O. <br />A pasta do Windows é uma opção: C:\Windows.</li>
 <li>Descompactar o Eclipse e executá-lo.</li>
 <li>Navegar até o menu File >> Import>> Maven >> Existing Maven Projects.</li>
-<li>Executar a suíte de testes.</li>
+<li>Executar a suíte de testes, localizada em: src/test/java.</li>
 </ul>
 
 # Autor
