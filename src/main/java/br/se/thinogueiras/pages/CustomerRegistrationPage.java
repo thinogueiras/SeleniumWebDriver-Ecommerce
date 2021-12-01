@@ -2,6 +2,8 @@ package br.se.thinogueiras.pages;
 
 import static br.se.thinogueiras.core.DriverFactory.getDriver;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.github.javafaker.Faker;
 
 import br.se.thinogueiras.core.BasePage;
-import br.se.thinogueiras.core.Browser;
 
 public class CustomerRegistrationPage extends BasePage 
 {
@@ -18,9 +19,14 @@ public class CustomerRegistrationPage extends BasePage
 	private static WebDriverWait wait;
 	private static WebElement element;
 	
+	public static void accessPage()
+	{
+		getDriver().get("http://automationpractice.com/index.php");
+	}
+	
 	public static void accessLoginPage()
 	{
-		getDriver(Browser.Chrome, false).get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+		clickByXpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a");
 	}
 	
 	public void setNewEmailAccount()
@@ -168,7 +174,7 @@ public class CustomerRegistrationPage extends BasePage
 	
 	public static void clickOnMyPersonalInformationButton()
 	{
-		wait = new WebDriverWait(getDriver(), 10);
+		wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"center_column\"]/div/div[1]/ul/li[4]/a/span")));
 		element.click();
 	}

@@ -1,6 +1,7 @@
 package br.se.thinogueiras.tests;
 
 import static br.se.thinogueiras.pages.ProductBuyPage.accessLoginPage;
+import static br.se.thinogueiras.pages.ProductBuyPage.accessPage;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -16,12 +17,13 @@ public class ProductBuyTest extends BaseTest
 	@Before
 	public void setUp()
 	{
-		accessLoginPage();	
+		accessPage();	
 	}
 	
 	@Test
 	public void buyProduct()
 	{
+		accessLoginPage();
 		page.setEmailAddress("teste2021@teste.com");
 		page.setPassword("teste@123");
 		page.clickOnSignInButton();

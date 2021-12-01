@@ -2,6 +2,8 @@ package br.se.thinogueiras.core;
 
 import static br.se.thinogueiras.core.DriverFactory.getDriver;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -55,7 +57,7 @@ public class BasePage
 	
 	public String getElementText(String xPath)
 	{
-		wait = new WebDriverWait(getDriver(), 10);
+		wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPath)));
 	    String text = element.getText();
 		return text;
@@ -82,7 +84,7 @@ public class BasePage
 	
 	public static void clickRadioButton(String id)
 	{
-		wait = new WebDriverWait(getDriver(), 30);
+		wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(id))).click();		
 	}
 	

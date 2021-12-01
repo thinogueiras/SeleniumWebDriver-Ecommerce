@@ -1,6 +1,7 @@
 package br.se.thinogueiras.tests;
 
 import static br.se.thinogueiras.pages.CustomerRegistrationPage.accessLoginPage;
+import static br.se.thinogueiras.pages.CustomerRegistrationPage.accessPage;
 import static br.se.thinogueiras.pages.CustomerRegistrationPage.clickCheckBoxNewsletter;
 import static br.se.thinogueiras.pages.CustomerRegistrationPage.clickCheckBoxSpecialOffersFromPartners;
 import static br.se.thinogueiras.pages.CustomerRegistrationPage.clickOnCreateAnAccountButton;
@@ -19,14 +20,11 @@ import static br.se.thinogueiras.pages.CustomerRegistrationPage.setState;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
-import org.junit.FixMethodOrder;
-import org.junit.runners.MethodSorters;
 import org.junit.Test;
 
 import br.se.thinogueiras.core.BaseTest;
 import br.se.thinogueiras.pages.CustomerRegistrationPage;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CustomerRegistrationTest extends BaseTest
 {
 	private static CustomerRegistrationPage page = new CustomerRegistrationPage();
@@ -34,12 +32,13 @@ public class CustomerRegistrationTest extends BaseTest
 	@Before
 	public void setUp()
 	{
-		accessLoginPage();
+		accessPage();
 	}
 	
 	@Test
-	public void test1_registration() 
+	public void registration() 
 	{
+		accessLoginPage();
 		page.setNewEmailAccount();
 		clickOnCreateAnAccountButton();
 		assertEquals("CREATE AN ACCOUNT", page.validateScreenTitleCreateAnAccount("CREATE AN ACCOUNT"));
@@ -66,8 +65,9 @@ public class CustomerRegistrationTest extends BaseTest
 	}
 	
 	@Test
-	public void test2_checkAccountExists()
+	public void checkAccountExists()
 	{
+		accessLoginPage();
 		page.setNewEmailAccount("teste2021@teste.com");
 		clickOnCreateAnAccountButton();
 		assertEquals("An account using this email address has already been registered. Please enter a valid password or request a new one.", 
@@ -75,8 +75,9 @@ public class CustomerRegistrationTest extends BaseTest
 	}
 	
 	@Test
-	public void test3_checkCustomerAccountRegister()
+	public void checkCustomerAccountRegister()
 	{
+		accessLoginPage();
 		setEmailAddress("teste2021@teste.com");
 		setPassword("teste@123");
 		clickOnSignInButton();
