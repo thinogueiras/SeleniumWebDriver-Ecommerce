@@ -1,17 +1,10 @@
 package br.se.thinogueiras.pages;
 
-import static br.se.thinogueiras.core.DriverFactory.getDriver;
-
 import br.se.thinogueiras.core.BasePage;
 
 public class LoginPage extends BasePage
-{
-	public static void accessPage()
-	{
-		getDriver().get("http://automationpractice.com/index.php");
-	}
-	
-	public static void accessLoginPage()
+{	
+	public void accessLoginPage()
 	{
 		clickByXpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a");
 	}
@@ -48,7 +41,7 @@ public class LoginPage extends BasePage
 		return getElementText("//*[@id=\"center_column\"]/div[1]/ol/li");		
 	}
 
-	public static void clickOnSignOut() 
+	public void clickOnSignOut() 
 	{		
 		clickByXpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[2]/a");
 	}	

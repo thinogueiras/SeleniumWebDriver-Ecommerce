@@ -15,16 +15,11 @@ import br.se.thinogueiras.core.BasePage;
 
 public class CustomerRegistrationPage extends BasePage 
 {
-	static Faker faker = new Faker();
-	private static WebDriverWait wait;
-	private static WebElement element;
+	private Faker faker = new Faker();
+	private WebDriverWait wait;
+	private WebElement element;	
 	
-	public static void accessPage()
-	{
-		getDriver().get("http://automationpractice.com/index.php");
-	}
-	
-	public static void accessLoginPage()
+	public void accessLoginPage()
 	{
 		clickByXpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a");
 	}
@@ -39,7 +34,7 @@ public class CustomerRegistrationPage extends BasePage
 		sendText("email_create", text);
 	}
 	
-	public static void clickOnCreateAnAccountButton()
+	public void clickOnCreateAnAccountButton()
 	{
 		clickByXpath("//*[@id=\"SubmitCreate\"]/span");
 	}
@@ -49,7 +44,7 @@ public class CustomerRegistrationPage extends BasePage
 		return getScreenTitle("//*[@id=\"columns\"]/div[3]", textCheck);
 	}
 	
-	public static void setMaleGender()
+	public void setMaleGender()
 	{
 		clickRadioButton("id_gender1");
 	}
@@ -69,47 +64,44 @@ public class CustomerRegistrationPage extends BasePage
 		sendText("customer_lastname", lastName);
 	}
 	
-	public static void setPassword(String password)
+	public void setPassword(String password)
 	{
 		sendText("passwd", password);
-	}	
-	
-	public static void selectBirthDate(String birthDate)
-	{
-		int day = Integer.parseInt(birthDate.substring(0, 2));
-		int month = Integer.parseInt(birthDate.substring(2, 4));
-		int year = Integer.parseInt(birthDate.substring(4));		
-		selectComboField("days", day);		
-		selectComboField("months", month);
-		selectComboFieldYear("years", year);		
 	}
 	
-	public static void clickCheckBoxNewsletter()
+	public void setBirthDate(int day, String month, int year)
+	{
+		selectComboField("days", day);
+		selectComboField("months", month);
+		selectComboField("years", year);
+	}
+	
+	public void clickCheckBoxNewsletter()
 	{
 		clickById("newsletter");
 	}
 	
-	public static void clickCheckBoxSpecialOffersFromPartners()
+	public void clickCheckBoxSpecialOffersFromPartners()
 	{
 		clickById("optin");
 	}		 
 	
-	public static void setCompanyName(String companyName)
+	public void setCompanyName(String companyName)
 	{
 		sendText("company", companyName);
 	}
 	
-	public static void setAddress(String address)
+	public void setAddress(String address)
 	{
 		sendText("address1", address);
 	}
 	
-	public static void setCity(String city)
+	public void setCity(String city)
 	{
 		sendText("city", city);
 	}
 	
-	public static void setState(String text)
+	public void setState(String text)
 	{
 		selectComboField("id_state", text);
 	}
@@ -134,13 +126,13 @@ public class CustomerRegistrationPage extends BasePage
 		sendText("phone_mobile", text);
 	}
 	
-	public static void setAddressAlias(String text)
+	public void setAddressAlias(String text)
 	{
 		clearField("alias");
 		sendText("alias", text);
 	}
 	
-	public static void clickRegisterButton()
+	public void clickRegisterButton()
 	{
 		clickByXpath("//*[@id=\"submitAccount\"]/span");
 	}
@@ -155,12 +147,12 @@ public class CustomerRegistrationPage extends BasePage
 		return getElementText("//*[@id=\"create_account_error\"]/ol/li");
 	}
 	
-	public static void setEmailAddress(String email)
+	public void setEmailAddress(String email)
 	{
 		sendText("email", email);
 	}	
 	
-	public static void clickOnSignInButton()
+	public void clickOnSignInButton()
 	{
 		clickByXpath("//*[@id=\"SubmitLogin\"]/span");
 	}
@@ -172,7 +164,7 @@ public class CustomerRegistrationPage extends BasePage
 		clickOnSignInButton();
 	}
 	
-	public static void clickOnMyPersonalInformationButton()
+	public void clickOnMyPersonalInformationButton()
 	{
 		wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"center_column\"]/div/div[1]/ul/li[4]/a/span")));
@@ -184,7 +176,7 @@ public class CustomerRegistrationPage extends BasePage
 		return getTextFields("email");
 	}
 	
-	public static void completeRegisterCustomer()
+	public void completeRegisterCustomer()
 	{
 		sendText("email", faker.internet().emailAddress());
 		clickOnCreateAnAccountButton();		
@@ -192,7 +184,7 @@ public class CustomerRegistrationPage extends BasePage
 		sendText("customer_firstname", faker.name().firstName());
 		sendText("customer_lastname", faker.name().lastName());
 		setPassword("teste@123");
-		selectBirthDate("14111989");
+		setBirthDate(14, "November", 1989);
 		clickCheckBoxNewsletter();
 		clickCheckBoxSpecialOffersFromPartners();
 		sendText("company", faker.company().name());

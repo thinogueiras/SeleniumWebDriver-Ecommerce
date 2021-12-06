@@ -7,25 +7,29 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage 
 {
-	private static WebElement element;
-	private static WebDriverWait wait;	
+	private WebElement element;
+	private WebDriverWait wait;
+	
+	public static void accessPage()
+	{
+		getDriver().get("http://automationpractice.com/index.php");
+	}
 		
-	public static void sendText(String id, String text)
+	public void sendText(String id, String text)
 	{
 		getDriver().findElement(By.id(id)).sendKeys(text);
 	}
 	
-	public static void clearField(String id)
+	public void clearField(String id)
 	{
 		getDriver().findElement(By.id(id)).clear();
 	}
 	
-	public static void sendText(String xPath)
+	public void sendText(String xPath)
 	{
 		getDriver().findElement(By.xpath(xPath));
 	}
@@ -35,22 +39,22 @@ public class BasePage
 		getDriver().findElement(By.id(id)).sendKeys(String.valueOf(value));
 	}	
 	
-	public static void clickById(String id)
+	public void clickById(String id)
 	{
 		getDriver().findElement(By.id(id)).click();
 	}
 	
-	public static void clickByName(String name)
+	public void clickByName(String name)
 	{
 		getDriver().findElement(By.name(name)).click();
 	}
 	
-	public static void clickByXpath(String xpath)
+	public void clickByXpath(String xpath)
 	{
 		getDriver().findElement(By.xpath(xpath)).click();
 	}
 	
-	public static void clickByLinkText(String link)
+	public void clickByLinkText(String link)
 	{
 		getDriver().findElement(By.linkText(link)).click();
 	}
@@ -82,32 +86,21 @@ public class BasePage
 		}
 	}
 	
-	public static void clickRadioButton(String id)
+	public void clickRadioButton(String id)
 	{
 		wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(id))).click();		
 	}
 	
-	public static void selectComboField(String id, String value)
+	public void selectComboField(String id, int value)
 	{
-		element = getDriver().findElement(By.id(id));
-		Select combo = new Select(element);
-		combo.selectByVisibleText(value);		
+		getDriver().findElement(By.id(id)).sendKeys(String.valueOf(value));		
 	}
 	
-	public static void selectComboField(String id, int value)
+	public void selectComboField(String id, String value)
 	{
-		element = getDriver().findElement(By.id(id));
-		Select combo = new Select(element);		
-		combo.selectByIndex(value);		
+		getDriver().findElement(By.id(id)).sendKeys(value);		
 	}
-	
-	public static void selectComboFieldYear(String id, int value)
-	{
-		element = getDriver().findElement(By.id(id));
-		Select combo = new Select(element);		
-		combo.selectByIndex(33);				
-	}	
 	
 	public void sendNumbers(String id, int value)
 	{

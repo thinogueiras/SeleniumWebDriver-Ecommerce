@@ -1,6 +1,5 @@
 package br.se.thinogueiras.tests;
 
-import static br.se.thinogueiras.pages.ProductBuyPage.accessLoginPage;
 import static br.se.thinogueiras.pages.ProductBuyPage.accessPage;
 import static org.junit.Assert.assertEquals;
 
@@ -12,18 +11,19 @@ import br.se.thinogueiras.pages.ProductBuyPage;
 
 public class ProductBuyTest extends BaseTest
 {
-	private static ProductBuyPage page = new ProductBuyPage();
+	private ProductBuyPage page;
 	
 	@Before
 	public void setUp()
 	{
+		page = new ProductBuyPage();
 		accessPage();	
 	}
 	
 	@Test
 	public void buyProduct()
 	{
-		accessLoginPage();
+		page.accessLoginPage();
 		page.setEmailAddress("teste2021@teste.com");
 		page.setPassword("teste@123");
 		page.clickOnSignInButton();

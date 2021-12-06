@@ -14,14 +14,9 @@ import br.se.thinogueiras.core.BasePage;
 public class ProductBuyPage extends BasePage
 {
 	private WebDriverWait wait;
-	private WebElement element;
+	private WebElement element;	
 	
-	public static void accessPage()
-	{
-		getDriver().get("http://automationpractice.com/index.php");
-	}
-	
-	public static void accessLoginPage()
+	public void accessLoginPage()
 	{
 		clickByXpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a");
 	}
@@ -56,7 +51,7 @@ public class ProductBuyPage extends BasePage
 	public void clickOnAddToCartButton()
 	{
 		wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
-		element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"add_to_cart\"]/button/span")));
+		element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/div[2]/div/div[3]/div/div/div/div[4]/form/div/div[3]/div[1]/p/button/span")));
 		element.click();				
 	}
 
@@ -123,6 +118,5 @@ public class ProductBuyPage extends BasePage
 	public String checkOrderMessage()
 	{
 		return getElementText("//*[@id=\"center_column\"]/div/p/strong");
-	}
-	
+	}	
 }
