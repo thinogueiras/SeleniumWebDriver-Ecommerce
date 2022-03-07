@@ -13,7 +13,7 @@ Link para download: https://www.eclipse.org/downloads/
 * Java SE Development Kit 8u311. <br />
 Link para download: https://www.oracle.com/java/technologies/downloads/#java8
 
-# Intruções de execução
+# Instruções de execução
 <span style="color:blue">*Realizar o download dos drivers compatíveis com a versão do navegador de internet.*</span> <br />
 
 Chrome: https://chromedriver.chromium.org/downloads <br />
